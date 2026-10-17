@@ -22,7 +22,7 @@ import { EarningsRecord } from '../../models/saathi.models';
           {{ i18n.currentLanguage() === 'hi'
             ? 'केवल आपके द्वारा दर्ज किए गए आंकड़ों के आधार पर सटीक और पारदर्शी गणितीय गणना। कोई भी नकली लेन-देन या अनुमान नहीं।'
             : i18n.currentLanguage() === 'pa'
-            ? 'ਸਿਰਫ਼ ਤੁਹਾਡੇ ਵੱਲੋਂ ਦਰਜ ਕੀਤੇ ਅੰਕੜਿਆਂ ਦੇ ਆਧਾਰ \'ਤੇ ਸਹੀ ਹਿਸਾਬ। ਕੋਈ ਅੰਦਾਜ਼ਾ ਜਾਂ ਫ਼ਰਜ਼ੀ ਐਂਟਰੀ ਨਹੀਂ।'
+            ? 'ਸਿਰਫ਼ ਤੁਹਾਡੇ ਵੱਲੋਂ ਦਰਜ ਕੀਤੇ ਅੰਕੜਿਆਂ ਦੇ ਆਧਾਰ ਤੇ ਸਹੀ ਹਿਸਾਬ। ਕੋਈ ਅੰਦਾਜ਼ਾ ਜਾਂ ਫ਼ਰਜ਼ੀ ਐਂਟਰੀ ਨਹੀਂ।'
             : 'Deterministic, transparent calculations strictly using data you enter. Zero simulated or fabricated transactions.' }}
         </p>
       </div>

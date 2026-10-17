@@ -84,7 +84,7 @@ import { AuthService } from '../../services/auth.service';
             <ul>
               <li>{{ i18n.currentLanguage() === 'hi' ? 'मनगढ़ंत तारीखें, कटौतियां या झूठे कानूनी दावे नहीं बनाता' : i18n.currentLanguage() === 'pa' ? 'ਮਨਘੜਤ ਤਾਰੀਖਾਂ, ਕਟੌਤੀਆਂ ਜਾਂ ਕਾਨੂੰਨੀ ਦਾਅਵੇ ਨਹੀਂ ਬਣਾਉਂਦਾ' : 'Never invents amounts, dates, legal sections, or fraud allegations' }}</li>
               <li>{{ i18n.currentLanguage() === 'hi' ? 'बिना वास्तविक एकीकरण के यह दावा नहीं करता कि शिकायत सबमिट हो गई है' : i18n.currentLanguage() === 'pa' ? 'ਬਿਨਾਂ ਅਸਲ ਪੁਸ਼ਟੀ ਦੇ ਇਹ ਦਾਅਵਾ ਨਹੀਂ ਕਰਦਾ ਕਿ ਸ਼ਿਕਾਇਤ ਜਮ੍ਹਾ ਹੋ ਗਈ ਹੈ' : 'Never pretends a complaint has been submitted to your platform or court' }}</li>
-              <li>{{ i18n.currentLanguage() === 'hi' ? 'केवल एआई के आधार पर आपको सरकारी योजना का पात्र घोषित नहीं करता' : i18n.currentLanguage() === 'pa' ? 'ਸਿਰਫ਼ ਏਆਈ ਦੇ ਆਧਾਰ \'ਤੇ ਤੁਹਾਨੂੰ ਸਕੀਮ ਦਾ ਯੋਗ ਨਹੀਂ ਠਹਿਰਾਉਂਦਾ' : 'Never declares you "eligible" solely on AI guesses — official portal verification is required' }}</li>
+              <li>{{ i18n.currentLanguage() === 'hi' ? 'केवल एआई के आधार पर आपको सरकारी योजना का पात्र घोषित नहीं करता' : i18n.currentLanguage() === 'pa' ? 'ਸਿਰਫ਼ ਏਆਈ ਦੇ ਆਧਾਰ ਤੇ ਤੁਹਾਨੂੰ ਸਕੀਮ ਦਾ ਯੋਗ ਨਹੀਂ ਠਹਿਰਾਉਂਦਾ' : 'Never declares you "eligible" solely on AI guesses — official portal verification is required' }}</li>
               <li>{{ i18n.currentLanguage() === 'hi' ? 'कभी भी आधार, बैंक पासवर्ड या ओटीपी नहीं मांगता' : i18n.currentLanguage() === 'pa' ? 'ਕਦੇ ਵੀ ਆਧਾਰ, ਬੈਂਕ ਪਾਸਵਰਡ ਜਾਂ ਓਟੀਪੀ ਨਹੀਂ ਮੰਗਦਾ' : 'Never asks for or stores Aadhaar numbers, passwords, or OTPs' }}</li>
             </ul>
           </div>
@@ -97,7 +97,7 @@ import { AuthService } from '../../services/auth.service';
           <div class="feature-icon-badge" style="background: #e0f2fe; color: #0369a1;">✍️</div>
           <div class="feature-content">
             <h3>{{ i18n.t.navGrievance }}</h3>
-            <p>{{ i18n.currentLanguage() === 'hi' ? 'वेतन कटौती, पेंडिंग पेमेंट या अकाउंट बंद होने पर सही शिकायत तैयार करें।' : i18n.currentLanguage() === 'pa' ? 'ਤਨਖ਼ਾਹ ਕਟੌਤੀ ਜਾਂ ਖਾਤਾ ਬੰਦ ਹੋਣ \'ਤੇ ਸਹੀ ਸ਼ਿਕਾਇਤ ਤਿਆਰ ਕਰੋ।' : 'Draft constructive, structured complaints for payout disputes and deactivations.' }}</p>
+            <p>{{ i18n.currentLanguage() === 'hi' ? 'वेतन कटौती, पेंडिंग पेमेंट या अकाउंट बंद होने पर सही शिकायत तैयार करें।' : i18n.currentLanguage() === 'pa' ? 'ਤਨਖ਼ਾਹ ਕਟੌਤੀ ਜਾਂ ਖਾਤਾ ਬੰਦ ਹੋਣ ਤੇ ਸਹੀ ਸ਼ਿਕਾਇਤ ਤਿਆਰ ਕਰੋ।' : 'Draft constructive, structured complaints for payout disputes and deactivations.' }}</p>
           </div>
           <span class="arrow-indicator">→</span>
         </a>
