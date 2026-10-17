@@ -21,23 +21,25 @@ export function resolveModelTier(modelInput, fallbackModel = 'gemini-3.8-flash')
     case 'low':
     case 'lite':
     case 'fast':
-      return 'gemini-2.0-flash'; // Fast, lightweight, lower quota footprint
     case 'medium':
     case 'miduem':
     case 'balanced':
     case 'standard':
-      return 'gemini-3.8-flash'; // Balanced multilingual reasoning & grounding
     case 'high':
     case 'pro':
     case 'advanced':
-      return 'gemini-1.5-pro';   // Deep analysis and complex policy drafting
+      return 'gemini-3.8-flash'; // Google recommended active model
     default:
-      return modelInput.trim();   // Custom or explicit model name
+      // Auto-heal: If deprecated 2.0 or 2.5 is requested, redirect to 3.8-flash
+      if (normalized.includes('2.0') || normalized.includes('2.5')) {
+        return 'gemini-3.8-flash';
+      }
+      return modelInput.trim();
   }
 }
 
 export const GEMINI_MODEL = resolveModelTier(process.env.GEMINI_MODEL || process.env.AI_TIER, 'gemini-3.8-flash');
-export const GEMINI_BACKUP_MODEL = resolveModelTier(process.env.GEMINI_BACKUP_MODEL, 'gemini-2.0-flash');
+export const GEMINI_BACKUP_MODEL = resolveModelTier(process.env.GEMINI_BACKUP_MODEL, 'gemini-3.8-flash');
 
 /**
  * Reliability Helper:
