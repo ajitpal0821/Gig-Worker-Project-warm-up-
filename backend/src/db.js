@@ -1,10 +1,15 @@
 import mongoose from 'mongoose';
 
+/**
+ * Global cache for MongoDB connection across warm serverless invocations.
+ * Prevents connection leakage and exhaustion in serverless environments (e.g. Vercel).
+ */
+let cachedPromise = null;
 let isConnected = false;
 
 /**
- * Connect to MongoDB safely.
- * Gracefully handles connection failures without crashing the application.
+ * Connect to MongoDB safely with serverless connection pooling & caching.
+ * Reuses existing connection across warm invocations.
  */
 export async function connectDb(customUri = null) {
   const uri = customUri || process.env.MONGODB_URI;
@@ -15,23 +20,35 @@ export async function connectDb(customUri = null) {
     return false;
   }
 
-  try {
-    // Avoid re-connecting if already connected
-    if (mongoose.connection.readyState === 1) {
-      isConnected = true;
-      return true;
-    }
+  // If already connected and ready, reuse connection immediately
+  if (mongoose.connection.readyState === 1) {
+    isConnected = true;
+    return true;
+  }
 
+  // If connection is in progress, reuse the cached promise
+  if (cachedPromise) {
+    try {
+      await cachedPromise;
+      return mongoose.connection.readyState === 1;
+    } catch {
+      cachedPromise = null;
+    }
+  }
+
+  try {
     mongoose.set('strictQuery', true);
-    await mongoose.connect(uri, {
+    cachedPromise = mongoose.connect(uri, {
       serverSelectionTimeoutMS: 5000,
-      autoIndex: true
+      autoIndex: true,
+      maxPoolSize: 10
     });
 
-    isConnected = true;
+    await cachedPromise;
     console.log('[MongoDB] Connected successfully to database.');
     return true;
   } catch (error) {
+    cachedPromise = null;
     isConnected = false;
     console.error('[MongoDB] Connection error (safe log):', error.message);
     return false;
@@ -42,7 +59,7 @@ export async function connectDb(customUri = null) {
  * Check if MongoDB connection is active
  */
 export function isDbConnected() {
-  return isConnected && mongoose.connection.readyState === 1;
+  return mongoose.connection.readyState === 1;
 }
 
 /**
@@ -52,5 +69,6 @@ export async function closeDb() {
   if (mongoose.connection.readyState !== 0) {
     await mongoose.disconnect();
   }
+  cachedPromise = null;
   isConnected = false;
 }

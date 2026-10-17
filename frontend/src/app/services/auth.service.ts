@@ -3,8 +3,9 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, tap, catchError, of, throwError } from 'rxjs';
 import { User } from '../models/saathi.models';
+import { API_BASE } from '../config/api.config';
 
-const API_BASE = 'http://localhost:3000/api/auth';
+const AUTH_API_BASE = `${API_BASE}/auth`;
 
 const HTTP_OPTIONS = {
   withCredentials: true,
@@ -35,7 +36,7 @@ export class AuthService {
    * Check current active session via HttpOnly cookie
    */
   checkSession(): Observable<{ success: boolean; user?: User } | null> {
-    return this.http.get<{ success: boolean; user: User }>(`${API_BASE}/me`, HTTP_OPTIONS).pipe(
+    return this.http.get<{ success: boolean; user: User }>(`${AUTH_API_BASE}/me`, HTTP_OPTIONS).pipe(
       tap((res) => {
         if (res && res.user) {
           this.currentUser.set(res.user);
@@ -58,7 +59,7 @@ export class AuthService {
   signup(credentials: { username: string; password: string; confirmPassword?: string }): Observable<any> {
     this.loading.set(true);
     return this.http.post<{ success: boolean; message: string; user: User }>(
-      `${API_BASE}/signup`,
+      `${AUTH_API_BASE}/signup`,
       credentials,
       HTTP_OPTIONS
     ).pipe(
@@ -82,7 +83,7 @@ export class AuthService {
   login(credentials: { username: string; password: string }): Observable<any> {
     this.loading.set(true);
     return this.http.post<{ success: boolean; message: string; user: User }>(
-      `${API_BASE}/login`,
+      `${AUTH_API_BASE}/login`,
       credentials,
       HTTP_OPTIONS
     ).pipe(
@@ -109,7 +110,7 @@ export class AuthService {
       localStorage.removeItem('saathi_cases_v1');
       localStorage.removeItem('saathi_earnings_v1');
     } catch {}
-    return this.http.post<{ success: boolean }>(`${API_BASE}/logout`, {}, HTTP_OPTIONS).pipe(
+    return this.http.post<{ success: boolean }>(`${AUTH_API_BASE}/logout`, {}, HTTP_OPTIONS).pipe(
       tap(() => {
         this.currentUser.set(null);
         this.loading.set(false);

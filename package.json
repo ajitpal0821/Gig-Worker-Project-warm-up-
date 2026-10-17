@@ -4,14 +4,26 @@
   "type": "module",
   "description": "Saathi — Multilingual AI Assistant for Gig and Informal Workers in India",
   "scripts": {
+    "build": "cd frontend && npm run build",
+    "build:frontend": "cd frontend && npm run build",
+    "start": "node backend/src/index.js",
     "start:backend": "cd backend && npm start",
     "start:frontend": "cd frontend && npm start",
-    "build:frontend": "cd frontend && npm run build",
     "test": "node run-tests.js",
     "test:backend": "node run-tests.js",
     "test:e2e": "playwright test --project=chromium",
     "test:all": "node run-tests.js && playwright test --project=chromium",
     "install:all": "npm --prefix backend install && npm --prefix frontend install"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.0",
+    "bcryptjs": "^3.0.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^8.24.5"
   },
   "keywords": [
     "gig-workers",

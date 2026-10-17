@@ -2,8 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of, catchError } from 'rxjs';
 import { ComplaintFormData, ComplaintResult, SchemeSearchResponse } from '../models/saathi.models';
-
-const API_BASE = 'http://localhost:3000/api';
+import { API_BASE } from '../config/api.config';
 
 @Injectable({
   providedIn: 'root'

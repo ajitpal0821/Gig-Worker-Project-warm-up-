@@ -1,10 +1,10 @@
 import { Injectable, inject, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { LocalCase, EarningsRecord } from '../models/saathi.models';
+import { API_BASE } from '../config/api.config';
 
 const CASES_STORAGE_KEY = 'saathi_cases_v1';
 const EARNINGS_STORAGE_KEY = 'saathi_earnings_v1';
-const API_BASE = 'http://localhost:3000/api';
 
 const HTTP_OPTS = {
   withCredentials: true,
