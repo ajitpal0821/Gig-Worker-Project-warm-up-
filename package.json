@@ -4,8 +4,8 @@
   "type": "module",
   "description": "Saathi — Multilingual AI Assistant for Gig and Informal Workers in India",
   "scripts": {
-    "build": "cd frontend && npm run build",
-    "build:frontend": "cd frontend && npm run build",
+    "build": "npm --prefix frontend install && npm --prefix frontend run build",
+    "build:frontend": "npm --prefix frontend run build",
     "start": "node backend/src/index.js",
     "start:backend": "cd backend && npm start",
     "start:frontend": "cd frontend && npm start",
