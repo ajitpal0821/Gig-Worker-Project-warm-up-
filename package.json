@@ -13,6 +13,7 @@
     "test:backend": "node run-tests.js",
     "test:e2e": "playwright test --project=chromium",
     "test:all": "node run-tests.js && playwright test --project=chromium",
+    "generate:pdf": "node generate-pdf.js",
     "install:all": "npm --prefix backend install && npm --prefix frontend install"
   },
   "dependencies": {
