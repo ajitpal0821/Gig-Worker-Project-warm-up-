@@ -1,0 +1,30 @@
+{
+  "name": "saathi-app",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Saathi — Multilingual AI Assistant for Gig and Informal Workers in India",
+  "scripts": {
+    "start:backend": "cd backend && npm start",
+    "start:frontend": "cd frontend && npm start",
+    "build:frontend": "cd frontend && npm run build",
+    "test": "node run-tests.js",
+    "test:backend": "node run-tests.js",
+    "test:e2e": "playwright test --project=chromium",
+    "test:all": "node run-tests.js && playwright test --project=chromium",
+    "install:all": "npm --prefix backend install && npm --prefix frontend install"
+  },
+  "keywords": [
+    "gig-workers",
+    "informal-economy",
+    "gemini-ai",
+    "search-grounding",
+    "angular",
+    "india",
+    "eshram"
+  ],
+  "author": "Prompt Wars Hackathon Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.64.1"
+  }
+}

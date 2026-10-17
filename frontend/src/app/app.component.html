@@ -1,0 +1,42 @@
+<div class="saathi-shell">
+  <!-- Top Navigation Header -->
+  <app-navbar></app-navbar>
+
+  <!-- Main Application Body -->
+  <main class="main-content">
+    <div class="content-wrapper">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+
+  <!-- Footer with Worker Privacy & Safety Assurances -->
+  <footer class="saathi-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <strong>{{ i18n.t.appName }}</strong>
+        <p>{{ i18n.t.appTagline }}</p>
+      </div>
+
+      <div class="footer-privacy">
+        <span class="lock-icon">🔒</span>
+        <p>{{ i18n.t.privacyNotice }}</p>
+      </div>
+
+      <div class="footer-actions">
+        <button
+          type="button"
+          class="btn-clear-footer"
+          (click)="handleClearData()"
+          title="Clear local storage demo records">
+          🗑️ {{ i18n.t.clearData }}
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div class="toast-notice animate-fade-in" *ngIf="clearedToast">
+    <span>✓</span>
+    <span>{{ i18n.t.dataCleared }}</span>
+  </div>
+</div>

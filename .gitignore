@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+*.env
+
+# Angular build output
+dist/
+tmp/
+out-tsc/
+.angular/
+
+# Logs & Test outputs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+test-results/
+playwright-report/
+
+# Editor and OS files
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
